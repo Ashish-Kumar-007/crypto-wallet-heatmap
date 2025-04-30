@@ -5,8 +5,7 @@ export default function TopActiveDays ({ data }) {
           📅 Most Active Days
         </h2>
         <div className="space-y-3">
-          {data
-            .slice()
+          {data?.slice()
             .sort((a, b) => b.count - a.count)
             .slice(0, 7)
             .map((entry) => (

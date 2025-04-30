@@ -1,17 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-import CalendarHeatmap from "react-calendar-heatmap";
-import "react-calendar-heatmap/dist/styles.css";
+import { TransactionHeatmap } from "./components/TransactionHeatmap";
+import { TopActiveDays } from "./components/TopActiveDays";
+import { TransactionActivityChart } from "./components/TransactionActivityChart";
 import { addDays } from "date-fns";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid,
-} from "recharts";
+
 
 export default function Home() {
   const [wallet, setWallet] = useState("");
@@ -52,78 +45,9 @@ export default function Home() {
 
         {data.length > 0 ? (
           <>
-            {/* Heatmap Section */}
-            <section className="mt-12">
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-                🗓️ 6-Month Transaction Heatmap
-              </h2>
-              <CalendarHeatmap
-                startDate={startDate}
-                endDate={endDate}
-                values={data}
-                classForValue={(value) => {
-                  if (!value || !value.count) return "bg-gray-200";
-                  if (value.count < 2) return "bg-green-200";
-                  if (value.count < 5) return "bg-green-400";
-                  return "bg-green-600";
-                }}
-                tooltipDataAttrs={(value) => ({
-                  "data-tip": `${value.date}: ${value.count || 0} txs`,
-                })}
-                showWeekdayLabels
-              />
-              <p className="text-sm text-gray-500 mt-2">
-                Darker shades indicate higher transaction activity.
-              </p>
-            </section>
-
-            {/* Top Active Days Summary */}
-            <section className="mt-12">
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-                📅 Most Active Days
-              </h2>
-              <div className="space-y-3">
-                {data
-                  .slice()
-                  .sort((a, b) => b.count - a.count)
-                  .slice(0, 7)
-                  .map((entry) => (
-                    <div key={entry.date}>
-                      <div className="flex justify-between text-sm font-medium text-gray-700">
-                        <span>{entry.date}</span>
-                        <span>{entry.count} txs</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-3">
-                        <div
-                          className="bg-blue-600 h-3 rounded-full transition-all"
-                          style={{ width: `${Math.min(entry.count * 10, 100)}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </section>
-
-            {/* Bar Chart Section */}
-            <section className="mt-12">
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-                📊 Transaction Activity (Last 30 Days)
-              </h2>
-              <div className="w-full h-64 bg-white rounded-lg shadow-md p-4">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    data={data.slice(-30)}
-                    margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="date" tick={{ fontSize: 10 }} />
-                    <YAxis />
-                    <Tooltip />
-                    <Bar dataKey="count" fill="#4299E1" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </section>
+                   <TransactionHeatmap startDate={startDate} endDate={endDate} data={data} />
+        <TopActiveDays data={data} />
+        <TransactionActivityChart data={data} />
           </>
         ) : (
           <p className="text-gray-500 text-center mt-6">

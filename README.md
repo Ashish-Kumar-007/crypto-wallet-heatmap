@@ -1,8 +1,3 @@
-Here's the **completed and corrected `README.md`** with proper formatting and the missing sections restored:
-
----
-
-```markdown
 # 🧊 Crypto Wallet Heatmap
 
 A visual tool to analyze Ethereum wallet activity over time using a calendar-style heatmap. This project helps you quickly understand the frequency of transactions per day by entering any Ethereum wallet address.

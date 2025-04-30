@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { TransactionHeatmap } from "./components/TransactionHeatmap";
-import { TopActiveDays } from "./components/TopActiveDays";
-import { TransactionActivityChart } from "./components/TransactionActivityChart";
+import  TransactionHeatmap  from "./components/TransactionHeatmap";
+import  TopActiveDays  from "./components/TopActiveDays";
+import  TransactionActivityChart  from "./components/TransactionActivityChart";
 import { addDays } from "date-fns";
 
 

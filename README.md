@@ -50,7 +50,7 @@ Blockchain explorers are great for deep dives into transaction details but not i
 
 ## 🌐 Demo
 
-[Crypto-Heatmap-Live](https://crypto-wallet-heatmap.vercel.app/)
+[Crypto-Wallet-Heatmap-Live](https://crypto-wallet-heatmap.vercel.app/)
 
 ---
 

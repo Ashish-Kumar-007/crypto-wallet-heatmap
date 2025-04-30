@@ -1,4 +1,4 @@
-export const TopActiveDays = ({ data }) => {
+export default function TopActiveDays ({ data }) {
     return (
       <section className="mt-12">
         <h2 className="text-2xl font-semibold text-blue-700 mb-4">

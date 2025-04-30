@@ -1,6 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
-export const TransactionActivityChart = ({ data }) => {
+export default function TransactionActivityChart ({ data }) {
   return (
     <section className="mt-12">
       <h2 className="text-2xl font-semibold text-blue-700 mb-4">

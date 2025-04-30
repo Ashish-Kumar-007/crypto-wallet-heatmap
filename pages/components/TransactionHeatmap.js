@@ -1,7 +1,7 @@
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
 
-export const TransactionHeatmap = ({ startDate, endDate, data }) => {
+export default function TransactionHeatmap ({ startDate, endDate, data }) {
   return (
     <section className="mt-12">
       <h2 className="text-2xl font-semibold text-blue-700 mb-4">

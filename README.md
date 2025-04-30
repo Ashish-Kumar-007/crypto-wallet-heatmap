@@ -92,7 +92,7 @@ Feel free to fork this repo, submit pull requests, and open issues.
 
 ## ✨ Author
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by Ashish(github.com/Ashish-Kumar-007)
 
 ```
 
